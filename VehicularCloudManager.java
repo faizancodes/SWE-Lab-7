@@ -77,59 +77,59 @@ public class VehicularCloudManager
 					frame.setSize(700, 600);
 					
 					JPanel panel = new JPanel();
-				    panel.setLayout(null);
+				        panel.setLayout(null);
 					
-				    JLabel idLabel = new JLabel("Client wants to send data");
-				    idLabel.setBounds(250, 10, 300, 300);
+				        JLabel idLabel = new JLabel("Client wants to send data");
+				        idLabel.setBounds(250, 10, 300, 300);
 				    
-			        JButton acceptButton = new JButton("Accept Data");
-			        JButton rejectButton = new JButton("Reject Data");
+			                JButton acceptButton = new JButton("Accept Data");
+			         	JButton rejectButton = new JButton("Reject Data");
 
-			        acceptButton.setBounds(100,200,200,100);
-			        rejectButton.setBounds(350,200,200,100);
+			        	acceptButton.setBounds(100,200,200,100);
+			        	rejectButton.setBounds(350,200,200,100);
 			        
-			        panel.add(idLabel);
-			        panel.add(acceptButton);
-			        panel.add(rejectButton);
-			        
-			        frame.add(panel);
-			        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			        frame.setVisible(true);
+			        	panel.add(idLabel);
+					panel.add(acceptButton);
+					panel.add(rejectButton);
 
-			        acceptButton.addActionListener(new java.awt.event.ActionListener() 
-			        {
-			            @Override
-			            public void actionPerformed(java.awt.event.ActionEvent evt) 
-			            {
-			                System.out.println("Accepted data");	
-			                frame.setVisible(false);
-			                
-			                try {
-								outputStream.writeUTF("VCCloudManager has accepted the data");
-							} catch (IOException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-			             
-			            }
-			        });
-			        
-			        rejectButton.addActionListener(new java.awt.event.ActionListener() 
-			        {
-			            @Override
-			            public void actionPerformed(java.awt.event.ActionEvent evt)
-			            {
-			                System.out.println("Rejected data");	
-			                frame.setVisible(false);
-			                
-			                try {
-								outputStream.writeUTF("VCCloudManager has rejected the data");
-							} catch (IOException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-			            }
-			        });
+					frame.add(panel);
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					frame.setVisible(true);
+
+					acceptButton.addActionListener(new java.awt.event.ActionListener() 
+					{
+					    @Override
+					    public void actionPerformed(java.awt.event.ActionEvent evt) 
+					    {
+						System.out.println("Accepted data");	
+						frame.setVisible(false);
+
+						try {
+							outputStream.writeUTF("VCCloudManager has accepted the data");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+
+					    }
+					});
+
+					rejectButton.addActionListener(new java.awt.event.ActionListener() 
+					{
+					    @Override
+					    public void actionPerformed(java.awt.event.ActionEvent evt)
+					    {
+						System.out.println("Rejected data");	
+						frame.setVisible(false);
+
+						try {
+							outputStream.writeUTF("VCCloudManager has rejected the data");
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					    }
+					});
 				}
 				
 				else 
@@ -142,12 +142,9 @@ public class VehicularCloudManager
 					
 					// server sends the message to client
 					outputStream.writeUTF(messageOut);
-				}
-				
+				}	
 			}
 			
-
-
 		} catch (Exception e) {
 
 			e.printStackTrace();
